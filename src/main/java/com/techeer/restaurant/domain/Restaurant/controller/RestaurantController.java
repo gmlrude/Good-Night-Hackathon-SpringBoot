@@ -54,5 +54,14 @@ public class RestaurantController {
         return ResponseEntity.ok(ResultResponse.of(RESTAURANT_GET_SUCCESS, response));
     }
 
+    @ApiOperation(value = "레스토랑 수정")
+    @PutMapping("{restaurantId}")
+    public ResponseEntity<ResultResponse> updateRestaurant(
+            @PathVariable Long restaurantId,
+            @Valid @RequestBody RestaurantDto.UpdateRequest updateRequest) {
+        restaurantService.updateRestaurant(restaurantId, updateRequest);
+        return ResponseEntity.ok(ResultResponse.of(ResultCode.RESTAURANT_UPDATE_SUCCESS));
+    }
+
 
 }

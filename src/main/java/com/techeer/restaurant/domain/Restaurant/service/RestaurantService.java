@@ -42,4 +42,12 @@ public class RestaurantService {
         RestaurantDto.Response response = restaurantMapper.toDto(restaurant);
         return response;
     }
+
+    public RestaurantDto.UpdateRequest updateRestaurant(Long restaurantId, RestaurantDto.UpdateRequest requestDto) {
+        Restaurant restaurantById = restaurantRepository.findById(restaurantId).orElseThrow(RestaurantNotFoundException::new);;
+        restaurantById.update(requestDto.getType());
+        Restaurant updatedRestaurant = restaurantRepository.save(restaurantById);
+
+        return restaurantMapper.toModify(updatedRestaurant);
+    }
 }

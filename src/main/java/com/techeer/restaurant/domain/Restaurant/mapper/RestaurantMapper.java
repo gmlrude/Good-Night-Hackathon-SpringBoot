@@ -25,4 +25,14 @@ public class RestaurantMapper {
 
         return restaurantResponse;
     }
+
+    public RestaurantDto.UpdateRequest toModify(Restaurant restaurant) {
+
+        RestaurantDto.UpdateRequest updateResponse =
+                RestaurantDto.UpdateRequest.builder()
+                        .type(restaurant.getType())
+                        .build();
+
+        return updateResponse;
+    }
 }

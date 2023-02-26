@@ -22,4 +22,12 @@ public class RestaurantDto {
         private String name;
         private String type;
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor(access = AccessLevel.PROTECTED)
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UpdateRequest {
+        private String type;
+    }
 }
