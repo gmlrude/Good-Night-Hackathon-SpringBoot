@@ -14,6 +14,14 @@ public class RestaurantDto {
         private LocalDateTime createdAt;
     }
 
+
+    @Builder
+    @AllArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class ReviewResponse {
+        private String name;
+    }
+
+
     @Getter
     @Builder
     @AllArgsConstructor(access = AccessLevel.PROTECTED)

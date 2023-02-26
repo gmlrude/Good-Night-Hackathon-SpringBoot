@@ -43,6 +43,11 @@ public class RestaurantService {
         return response;
     }
 
+    public Restaurant findRestaurantById(Long restaurantId) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(RestaurantNotFoundException::new);
+        return restaurant;
+    }
+
     public RestaurantDto.UpdateRequest updateRestaurant(Long restaurantId, RestaurantDto.UpdateRequest requestDto) {
         Restaurant restaurantById = restaurantRepository.findById(restaurantId).orElseThrow(RestaurantNotFoundException::new);;
         restaurantById.update(requestDto.getType());

@@ -1,9 +1,7 @@
 package com.techeer.restaurant.domain.Restaurant.entity;
 
-import com.techeer.restaurant.domain.Restaurant.dto.RestaurantDto;
 import com.techeer.restaurant.domain.Review.entity.Review;
 import com.techeer.restaurant.global.entity.BaseEntity;
-import com.techeer.restaurant.global.entity.Type;
 import lombok.*;
 
 import javax.persistence.*;
@@ -46,6 +44,5 @@ public class Restaurant extends BaseEntity {
     public void delete() { //soft delete
         this.isDeleted = true;
     }
-
 }
 
