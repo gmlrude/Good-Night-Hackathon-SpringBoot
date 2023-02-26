@@ -63,5 +63,10 @@ public class RestaurantController {
         return ResponseEntity.ok(ResultResponse.of(ResultCode.RESTAURANT_UPDATE_SUCCESS));
     }
 
-
+    @ApiOperation(value = "레스토랑 삭제")
+    @DeleteMapping("{restaurantId}")
+    public ResponseEntity<ResultResponse> deleteRestaurant(@PathVariable Long restaurantId) {
+        restaurantService.deleteRestaurant(restaurantId);
+        return ResponseEntity.ok(ResultResponse.of(ResultCode.RESTAURANT_DELETE_SUCCESS));
+    }
 }

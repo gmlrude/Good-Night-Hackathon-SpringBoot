@@ -50,4 +50,11 @@ public class RestaurantService {
 
         return restaurantMapper.toModify(updatedRestaurant);
     }
+
+    @Transactional
+    public void deleteRestaurant(Long restaurantId) {
+        Restaurant restaurant =
+                restaurantRepository.findById(restaurantId).orElseThrow(RestaurantNotFoundException::new);
+        restaurant.delete();
+    }
 }
