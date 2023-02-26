@@ -13,4 +13,16 @@ public class RestaurantMapper {
                 .type(dto.getType())
                 .build();
     }
+
+    public RestaurantDto.Response toDto(Restaurant restaurant) {
+
+        RestaurantDto.Response restaurantResponse =
+                RestaurantDto.Response.builder()
+                        .name(restaurant.getName())
+                        .type(restaurant.getType())
+                        .createdAt(restaurant.getCreatedAt())
+                        .build();
+
+        return restaurantResponse;
+    }
 }

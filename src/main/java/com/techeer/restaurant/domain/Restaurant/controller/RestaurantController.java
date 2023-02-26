@@ -47,4 +47,12 @@ public class RestaurantController {
         return ResponseEntity.ok(ResultResponse.of(RESTAURANT_GET_SUCCESS, response));
     }
 
+    @ApiOperation(value = "레스토랑 조회")
+    @GetMapping("{restaurantId}")
+    public ResponseEntity<ResultResponse> findAllById(@PathVariable Long restaurantId) {
+        RestaurantDto.Response response = restaurantService.findById(restaurantId);
+        return ResponseEntity.ok(ResultResponse.of(RESTAURANT_GET_SUCCESS, response));
+    }
+
+
 }

@@ -36,4 +36,10 @@ public class RestaurantService {
 
         return restaurants;
     }
+
+    public RestaurantDto.Response findById(Long restaurantId) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).orElseThrow(RestaurantNotFoundException::new);
+        RestaurantDto.Response response = restaurantMapper.toDto(restaurant);
+        return response;
+    }
 }
