@@ -24,4 +24,16 @@ public class RestaurantService {
 
         return createdRestaurant;
     }
+
+    public List<Restaurant> findAll() {
+        List<Restaurant> restaurants = restaurantRepository.findAll();;
+
+        return restaurants;
+    }
+
+    public List<Restaurant> findAllByType(String type) {
+        List<Restaurant> restaurants = restaurantRepository.findByType(type).orElseThrow(RestaurantNotFoundException::new);;
+
+        return restaurants;
+    }
 }

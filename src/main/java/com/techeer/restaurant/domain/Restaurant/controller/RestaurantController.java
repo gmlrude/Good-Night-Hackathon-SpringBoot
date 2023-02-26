@@ -32,4 +32,19 @@ public class RestaurantController {
         restaurantService.createRestaurant(createRequest);
         return ResponseEntity.ok(ResultResponse.of(ResultCode.RESTAURANT_CREATE_SUCCESS));
     }
+
+    @ApiOperation(value = "레스토랑 카테고리별 목록 조회")
+    @GetMapping
+    public ResponseEntity<ResultResponse> findAllByType(@RequestParam(value="type") String type) {
+        List<Restaurant> response = restaurantService.findAllByType(type);
+        return ResponseEntity.ok(ResultResponse.of(RESTAURANT_GET_SUCCESS, response));
+    }
+
+    @ApiOperation(value = "레스토랑 목록 조회")
+    @GetMapping("list")
+    public ResponseEntity<ResultResponse> findAll() {
+        List<Restaurant> response = restaurantService.findAll();
+        return ResponseEntity.ok(ResultResponse.of(RESTAURANT_GET_SUCCESS, response));
+    }
+
 }
